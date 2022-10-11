@@ -1,0 +1,88 @@
+.menu{
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    
+    &__button{
+        font-size: 21px;
+        display: flex;
+        gap: 7px;
+        background: transparent;
+        border: none;
+        color: var(--color-white);
+        cursor: pointer;
+        font-weight: 600;
+        padding: 15px;
+        border-radius: 45px;
+        transition: .2s;
+
+        .main_icon{
+            fill: var(--color-white)
+        }
+        .icon{
+            fill: var(--color-white);
+        }
+        &_active{
+            background: var(--color-white);
+            color: var(--color-black);
+            .main_icon{
+                fill: var(--color-black);
+            }
+            .icon{
+                fill: var(--color-black);
+            }
+        }
+        &:hover{
+            box-shadow: var(--box-shadow-hover-effect-light);
+            transition: .2s;
+        }
+        &:active{
+            transform: scale(.95)    
+        }
+    }
+    .links{
+        list-style: none;
+        font-weight: 600;
+        padding: 0;
+
+        a{
+            display: block;
+            padding: 10px;
+            border-radius: 10px;
+            &:hover{
+                box-shadow: var(--box-shadow-hover-effect-dark);
+            }
+            &::first-letter{
+                text-transform: uppercase;
+            }
+        }
+
+        &_wrapper{
+            position: absolute;
+            z-index: 1000;
+            visibility: hidden;
+            width: 150%;
+            opacity: .2;
+            top: 50px;
+            transform: translate(-50%);
+            left: 50%;
+            padding: 5px;
+            background: var(--color-white);
+            color: var(--color-black);
+            border-radius: 16px;
+
+            &.soLeft{
+                left: 100%;
+            }
+            
+            &_active{
+                top: 90px;
+                opacity: 1;
+                visibility: visible;
+                display: inline-block;
+                transition: top .3s, opacity .4s;  
+            }
+        }
+    }
+    
+}

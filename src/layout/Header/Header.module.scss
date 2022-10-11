@@ -1,0 +1,26 @@
+.header{
+    position: fixed;
+    z-index: 1000;
+    top: 0px;
+    padding: 10px;
+    left: 0;
+    width: 100%;
+    background: var(--color-black);
+
+    .nav{
+        display: grid;
+        gap: 10px;
+        width: 100%;
+        grid-template-rows: 56px;
+        grid-template-columns: auto minmax(200px, 1fr) auto;
+
+        &__item{
+            display: flex;
+
+            &_searchblock{
+                flex-direction: column;
+                justify-content: center;
+            }
+        }
+    }
+}
