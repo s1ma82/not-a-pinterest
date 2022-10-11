@@ -1,12 +1,8 @@
-import React from 'react';
+import React from "react";
 
 const Pin = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-}
+	return <div>PIN</div>;
+};
 
 const getStaticPaths = async () => {
 	return {
@@ -15,4 +11,4 @@ const getStaticPaths = async () => {
 		},
 	};
 };
-export default Pin
+export default Pin;

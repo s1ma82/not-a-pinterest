@@ -8,7 +8,6 @@ const NotPinterestContent = () => {
 	const [content, setContent] = useState([])
 	const trigger = useRef() 
 	const [randomPhotos] = useRandomPhotos({ req, setReq }) 
-
 	const handleObserver = useCallback( () => {
 		setReq(0)
 	}, [])
