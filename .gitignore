@@ -2,3 +2,5 @@ node_modules
 .next
 note.txt
 pinterest_clone.code-workspace
+.gitconfig
+.gitignore
