@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
-import { useGetPhoto } from "../../hooks";
-const Pin = ({ data }) => {
-	const [photo] = useGetPhoto({ id: data.id });
+import React, {useEffect} from 'react'
+import {useGetPhoto} from '../../hooks'
+const Pin = ({data}) => {
+	const [photo] = useGetPhoto({id: data.id})
 	useEffect(() => {
-		console.log(photo);
-	}, [photo]);
-	return <div>PIN</div>;
-};
+		console.log(photo)
+	}, [photo])
+	return <div>PIN</div>
+}
 
 export const getStaticPaths = async () => {
 	return {
@@ -14,11 +14,11 @@ export const getStaticPaths = async () => {
 			data,
 		},
 		fallback: false,
-	};
-};
+	}
+}
 export const getStaticProps = async () => {
 	return {
 		props: {},
-	};
-};
-export default Pin;
+	}
+}
+export default Pin

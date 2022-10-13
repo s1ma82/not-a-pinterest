@@ -1,11 +1,11 @@
-import NotPinterestContent from "../apps/NotPinterestContent/NotPinterestContent";
+import NotPinterestContent from '../apps/NotPinterestContent/NotPinterestContent'
 
 const Index = () => {
 	return (
-		<div id="index">
+		<div id='index'>
 			<NotPinterestContent />
 		</div>
-	);
-};
+	)
+}
 
-export default Index;
+export default Index

@@ -1,4 +1,4 @@
-import pinGenerateQuery from "./apiRequest/pinGenerateQuery";
-import randomPhotosQuery from "./apiRequest/randomPhotosQuery";
+import pinGenerateQuery from './apiRequest/pinGenerateQuery'
+import randomPhotosQuery from './apiRequest/randomPhotosQuery'
 
-export { randomPhotosQuery, pinGenerateQuery };
+export {randomPhotosQuery, pinGenerateQuery}

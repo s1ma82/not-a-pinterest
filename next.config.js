@@ -1,6 +1,6 @@
 module.exports = {
 	images: {
-		domains: ["images.unsplash.com"],
+		domains: ['images.unsplash.com'],
 	},
 	env: {
 		UNSPLASH_ACCESS_KEY: process.env.UNSPLASH_ACCESS_KEY,
@@ -12,4 +12,4 @@ module.exports = {
 			randomPhotos: process.env.RANDOM_PHOTOS_API,
 		},
 	},
-};
+}
