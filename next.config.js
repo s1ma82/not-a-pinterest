@@ -3,9 +3,13 @@ module.exports = {
 		domains: ["images.unsplash.com"],
 	},
 	env: {
-		UNSPLASH_ACCESS_KEY: "mGi0kIorsrYmfajPeFjuLeYs0fKG-vRuKCtcYQ8ZLHA",
-		UNSPLASH_SECRET_KEY: "kp0hZMomnGyBxvTpIkYqJ35n4lYZ_DXx8TMiqGWe_3M",
-		PORT: 3000,
-		SITE_URL: `http://localhost:3000`,
+		UNSPLASH_ACCESS_KEY: process.env.UNSPLASH_ACCESS_KEY,
+		UNSPLASH_SECRET_KEY: process.env.UNSPLASH_SECRET_KEY,
+		PORT: process.env.PORT,
+		SITE_URL: process.env.SITE_URL,
+		API_PATHS: {
+			pinGenerate: process.env.PIN_GENERATE_API,
+			randomPhotos: process.env.RANDOM_PHOTOS_API,
+		},
 	},
 };

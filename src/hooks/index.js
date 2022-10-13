@@ -1,6 +1,4 @@
 import useOutside from "./useOutside";
-import useGetPhotos from './useGetPhotos'
+import useGetPhoto from "./useGetPhoto";
 import useRandomPhotos from "./useRandomPhotos";
-export { useOutside, useGetPhotos, useRandomPhotos} 
-
-
+export { useOutside, useGetPhoto, useRandomPhotos };

@@ -4,3 +4,4 @@ note.txt
 pinterest_clone.code-workspace
 .gitconfig
 .gitignore
+.env.*
