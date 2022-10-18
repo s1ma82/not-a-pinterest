@@ -22,6 +22,14 @@
         .icon{
             fill: var(--color-white);
         }
+        &_sircle{
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 54px;
+            width: 54px;
+            border-radius: 90px;
+        }
         &_active{
             background: var(--color-white);
             color: var(--color-black);
@@ -71,12 +79,17 @@
             color: var(--color-black);
             border-radius: 16px;
 
-            &.soLeft{
+            &_sircle{
+                top: 50px;
+                min-width: 300px;
+            }
+
+            &.leftmost{
                 left: 100%;
             }
             
             &_active{
-                top: 90px;
+                top: var(--margin-top-default);
                 opacity: 1;
                 visibility: visible;
                 display: inline-block;
