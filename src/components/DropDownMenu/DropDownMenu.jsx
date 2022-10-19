@@ -3,62 +3,76 @@ import styles from './DropDownMenu.module.scss'
 import {DropDownMenuIcon} from '../imgs'
 import {useOutside} from '../../hooks'
 
-const DropDownMenu = ({children, title, leftmost, params}) => {
+const DropDownMenu = ({children, content, title, leftmost, params}) => {
 	const [activityState, setActivityState] = useOutside([
 		`[data-menu-filter=${title}]`,
 	])
 
-	const ChildrenLinks = () => (
-		<>
-			{React.Children.map(children, child => {
-				return <li>{React.cloneElement(child)}</li>
-			})}
-		</>
-	)
-	const BtnContent = () => {
-		if (!params) return (
-			<>
+	const Btn = () => {
+		const Icon =  () => params ? <params.icon/>
+			: <DropDownMenuIcon className={styles.icon} />
+		
+		const BtnDefault = () => (
+			<button onClick={() => setActivityState(!activityState)}
+				className={`
+					${styles.menu__button}
+					${activityState && styles.menu__button_active}
+				`}
+			>
 				{title}
 				<div className={styles.icon_wrapper}>
-					<DropDownMenuIcon className={styles.icon} />
+					<Icon/>
 				</div>
-			</>	
+			</button>
 		)
-		if (params.type === 'sircle') {
-			return (
-				<params.icon />
-			)
-		} 
-	
+		const BtnSircle = () => (
+			<button onClick={() => setActivityState(!activityState)}
+				className={`
+					${styles.menu__button}
+					${styles.menu__button_sirlce}
+					${activityState && styles.menu__button_active}
+				`}
+			> 
+				<Icon/>
+			</button>
+		)
+		return params && params.type === 'sircle' ? <BtnSircle/> : <BtnDefault/>
 	}
+	const Content = () => {
+
+		const ContentLinks = () => {
+			const ChildrenLinks = () => React.Children.map(children, child =>
+				<li>{React.cloneElement(child)}</li>
+			)
+			return (
+				<div className={`
+						${styles.links_wrapper}
+						${params && params.type === 'sircle' ? styles.links_wrapper_sircle : ''} 
+						${activityState ? styles.links_wrapper_active : ''} 
+						${leftmost ? styles.leftmost : ''}
+					`}>
+					<ul	className={styles.links}
+						onClick={e => 
+							e.target.closest('li').tagName !== 'LI' ||
+							setActivityState(false)
+						}
+					>
+						<ChildrenLinks/>
+					</ul>
+				</div>
+			)
+		}
+		const ContentShare = () => {
+			return 
+		}
+
+		return <ContentLinks/>
+	}
+
 	return (
 		<div className={styles.menu} data-menu-filter={title}>
-			<button
-				onClick={() => setActivityState(!activityState)}
-				className={`
-				${styles.menu__button}
-				${params && params.type === 'sircle' ? styles.menu__button_sircle: ''}
-				${activityState ? styles.menu__button_active : ''}
-				`}>
-				<BtnContent />
-			</button>
-			<div
-				className={`
-				${styles.links_wrapper}
-				${params && params.type === 'sircle' ? styles.links_wrapper_sircle : ''} 
-				${activityState ? styles.links_wrapper_active : ''} 
-				${leftmost ? styles.leftmost : ''}
-				`}>
-				<ul
-					className={styles.links}
-					onClick={e =>
-						e.target.closest('li').tagName === 'LI'
-							? setActivityState(false)
-							: {}
-					}>
-					<ChildrenLinks />
-				</ul>
-			</div>
+			<Btn/>
+			<Content/>	
 		</div>
 	)
 }
