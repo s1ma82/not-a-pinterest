@@ -1,0 +1,100 @@
+.shareLink{
+    display: flex !important;
+    justify-content: center !important; 
+
+    &:hover{
+        box-shadow: none !important;
+    }
+    
+    .text_container, .icon_container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+  
+    &.default{
+        margin-left: 10px;
+        box-sizing: content-box;
+        padding: 5px !important;
+        gap: 5px;
+        height: 40px;
+        padding-right: 10px !important;
+        border-radius: 16px;
+    }
+    &.sircle{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-width: 100px;
+        font-family: var(--font-default);
+        color: black;
+        font-weight: 400;
+        .icon_container{
+            width: 48px;
+            height: 48px;
+            border-radius: 90px;
+        }
+    }
+
+    &_Telegram{
+        font-family: var(--font-telegram);
+        .icon_container{
+            padding-right: 2.5px;
+
+            svg{
+                width: 80%;
+                height: 80%;
+                fill: white;
+            }
+        }
+        &.default{
+            color:  #fff;
+            background: #229Ed9;
+
+        }
+
+        &.sircle{
+            .icon_container{
+                background: #229Ed9;
+
+            }
+        }
+
+    } 
+    &_Vk{
+        .icon_container{
+            svg{
+                height: 70%;
+                width: 70%;
+                fill: white
+            }
+        }
+        &.default{
+            color:  #fff;
+            background: #0077ff;
+
+        }
+
+        &.sircle{
+            .icon_container{
+                background: #0077ff;
+
+            }
+        }
+    }
+}
+    // &_Instagram{
+    //     .icon_container{
+    //         background: #f09433; 
+    //         background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+    //         background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    //         background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+    //         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+    //         svg{
+    //             height: 30px;
+    //             fill: white
+    //         }
+    //     }
+    // }
