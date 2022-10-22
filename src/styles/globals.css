@@ -1,5 +1,6 @@
 @import url("./fonts/fonts.css");
 @import url("normalize.css");
+
 :root {
 	--color-black: #1b1b1b;
 	--color-white: #d6d6d6;
@@ -8,6 +9,7 @@
 	--box-shadow-hover-effect-dark: inset 0 0 1000px #00000030;
 	--box-shadow-hover-effect-light: inset 0 0 1000px #ffffff30;
 	--font-default: "Roboto Mono", 'Kanit', 'Open Sans', sans-serif;	
+	--margin-top-default: 90px;
 
 }
 ::-webkit-scrollbar{
@@ -22,7 +24,6 @@
 ::-webkit-scrollbar-thumb:hover{
 	background: #ffffff90;
 }
-html,
 body {
 	font-family: var(--font-default);
 	padding: 10px 15px;

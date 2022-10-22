@@ -1,25 +1,13 @@
 import React, {memo} from 'react'
-import Masonry, {ResponsiveMasonry} from 'react-responsive-masonry'
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
+import {generateImgParams} from '../../helpers'
 import {Pin} from '../'
 import styles from './MasonryGrid.module.scss'
 
-const setParams = (h, w) => {
-	const height = +String(h).substring(-1),
-		width = +String(w).substring(-1),
-		ratio = height / width,
-		newWidth = 240,
-		newHeight = newWidth * ratio
-
-	return {
-		height: newHeight,
-		width: newWidth,
-	}
-}
 
 const MasonryGrid = ({content}) => {
-	console.log(content)
 	const pins = content.map((i, index) => {
-		const params = setParams(i.height, i.width)
+		const params = generateImgParams(i.height, i.width, 236)
 		i.params = params
 		return <Pin data={i} key={`PinID:${i.id}`} />
 	})

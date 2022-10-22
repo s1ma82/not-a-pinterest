@@ -1,4 +1,4 @@
 import pinGenerateQuery from './apiRequest/pinGenerateQuery'
 import randomPhotosQuery from './apiRequest/randomPhotosQuery'
-
-export {randomPhotosQuery, pinGenerateQuery}
+import generateImgParams from './generateImgParams'
+export { generateImgParams, randomPhotosQuery, pinGenerateQuery}

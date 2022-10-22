@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import {randomPhotosQuery} from '../funcs'
+import {randomPhotosQuery} from '../helpers'
 
 const useRandomPhotos = params => {
 	const [state, setState] = useState()
