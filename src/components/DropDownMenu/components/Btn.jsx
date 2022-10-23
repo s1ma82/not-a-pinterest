@@ -10,7 +10,7 @@ export const Btn = ({ data }) => {
     const BtnDefault = () => (
         <button onClick={() => setState(!state)}
             className={`
-                ${styles.menu__button}
+                ${styles.menu__btn}
                 ${styles[btnStyle]}
             `}
         >
@@ -24,7 +24,7 @@ export const Btn = ({ data }) => {
     const BtnSircle = () => (
         <button onClick={() => setState(!state)}
             className={`
-                ${styles.menu__button}
+                ${styles.menu__btn}
                 ${styles[btnStyle]}
             `}
         > 

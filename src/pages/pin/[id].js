@@ -10,7 +10,7 @@ const Pin = ({ data }) => {
             <div className={styles.pin} style={{height: data.params.height}}>
                 <ImgComp data={data} type="pin" />
                 <div className={styles.info}>
-                    <DropDownMenu type="default" title="текст" >
+                    <DropDownMenu btnStyle="sircle" menuType="share" title="Share to" icon={} >
                         <a href="/">ссылка</a>
                     </DropDownMenu>
                 </div>
