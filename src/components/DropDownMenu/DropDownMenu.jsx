@@ -4,16 +4,16 @@ import { Menu } from './components/Menu'
 import {Btn} from './components/Btn'
 
 
-const DropDownMenu = ({children, title, leftmost, btnStyle = "default", menuType = "default", icon = null}) => {
+const DropDownMenu = ({children, title, leftmost, btnStyle = "default", menuType = "default", Icon = null}) => {
 	const [activityState, setActivityState] = useOutside([
-		`[data-menu-filter=${title}]`,
+		`[data-menu-filter="${title}"]`,
 	])
 	const btnData = {
 		state: activityState,
 		setState: setActivityState,
 		styles, 
 		title,
-		icon, 
+		Icon, 
 		btnStyle,
 	}
 	const menuData = {
@@ -25,7 +25,7 @@ const DropDownMenu = ({children, title, leftmost, btnStyle = "default", menuType
 		leftmost
 	}
 	return (
-		<div className={styles.menu} data-menu-filter={title}>
+		<div className={`${styles.menu} ${activityState ? styles.active : ''}`} data-menu-filter={title}>
 			<Btn data={btnData} />
 			<Menu data={menuData} />	
 		</div>

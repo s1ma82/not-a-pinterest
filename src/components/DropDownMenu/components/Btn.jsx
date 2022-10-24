@@ -1,34 +1,25 @@
 import {DropDownMenuIcon} from '../../imgs'
 
 export const Btn = ({ data }) => {
-    const {icon, styles, btnStyle, title, state, setState} = data
-    const Icon = () => btnStyle === "sircle" && icon
-        ? { icon }
+    const { Icon, styles, btnStyle, title, state, setState } = data
+    console.log(btnStyle)
+    const GenIcon = () => btnStyle === "sircle" && Icon
+        ? <Icon/>
         : <DropDownMenuIcon className={styles.icon} />
         
     
     const BtnDefault = () => (
-        <button onClick={() => setState(!state)}
-            className={`
-                ${styles.menu__btn}
-                ${styles[btnStyle]}
-            `}
-        >
+        <button onClick={() => setState(!state)} className={styles.menu__btn}>
             {title}
             <div className={styles.icon_wrapper}>
-                <Icon/>
+                <GenIcon/>
             </div>
         </button>
     )
 
     const BtnSircle = () => (
-        <button onClick={() => setState(!state)}
-            className={`
-                ${styles.menu__btn}
-                ${styles[btnStyle]}
-            `}
-        > 
-            <Icon/>
+        <button onClick={() => setState(!state)} className={`${styles.menu__btn} ${styles[btnStyle]}`}> 
+            <GenIcon/>
         </button>
     )
     return btnStyle === 'sircle' ? <BtnSircle/> : <BtnDefault/>
