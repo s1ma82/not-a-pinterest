@@ -7,10 +7,32 @@
         height: auto;
         min-width: 510px;
         max-width: 1020px;
-        background: #000;
 
         .info{
+            padding: 20px;
+            width: 50%;
+            *{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            &__header{
+                background: #000;
+                .share_container{
+                    width: 30%;
+                }
+                .profile_container{
+                    gap: 5px;
 
+                    &__btn{
+                        color: var(--color-white-full);
+                        background: var(--color-red);
+                        &:hover {
+                            box-shadow: var(--box-shadow-hover-effect-dark);
+                        }
+                    }   
+                }
+            }
         }
     }
 }
