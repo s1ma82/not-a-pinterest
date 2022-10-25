@@ -10,7 +10,9 @@ import Loader from './Loader/Loader.jsx'
 import ImgComp from './ImgComp/ImgComp'
 import MasonryGrid from './MasonryGrid/MasonryGrid'
 import Pin from './Pin/Pin'
+import ShareLink from './ShareLink/ShareLink'
 export {
+	ShareLink,
 	MasonryGrid,
 	ImgComp,
 	Loader,
