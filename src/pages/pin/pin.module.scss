@@ -11,18 +11,22 @@
         .info{
             padding: 20px;
             width: 50%;
-            *{
+            &__header{
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-            }
-            &__header{
                 background: #000;
                 .share_container{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
                     width: 30%;
                 }
                 .profile_container{
                     gap: 5px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
 
                     &__btn{
                         color: var(--color-white-full);
