@@ -2,7 +2,6 @@ import {DropDownMenuIcon} from '../../imgs'
 
 export const Btn = ({ data }) => {
     const { Icon, styles, btnStyle, title, state, setState } = data
-    console.log(btnStyle)
     const GenIcon = () => btnStyle === "sircle" && Icon
         ? <Icon/>
         : <DropDownMenuIcon className={styles.icon} />
