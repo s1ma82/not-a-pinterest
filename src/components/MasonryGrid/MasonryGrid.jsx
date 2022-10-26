@@ -9,7 +9,7 @@ const MasonryGrid = ({content}) => {
 	const pins = content.map((i, index) => {
 		const params = generateImgParams(i.height, i.width, 236)
 		i.params = params
-		return <Pin data={i} key={`PinID:${i.id}`} />
+		return <Pin data={i} key={`PinID:${i.id}#${index}`} />
 	})
 
 	return (
