@@ -28,9 +28,11 @@ const MainHeaderMenu = () => {
 					<p className={styles.section__label}>Сейчас:</p>
 					<div className={styles.section__content}>
 						<ProfileLink
-							name='User'
-							mail='usermail@mail.com'
-							status='status'
+							params={{
+								name  : 'User',
+								mail  : 'usermail@mail.com',
+								status: 'status'
+							}}
 						/>
 					</div>
 				</div>

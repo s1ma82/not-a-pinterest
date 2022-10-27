@@ -1,28 +1,39 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import pinGenerateQuery from '../../helpers/apiRequest/pinGenerateQuery';
-import {Btn, DropDownMenu, ImgComp, ShareLink} from '../../components'
-import styles from './pin.module.scss'
+import {Btn, DropDownMenu, ImgComp, ProfileLink, ShareLink} from '../../components'
 import { generateImgParams } from '../../helpers';
 import { PathCopyIcon, ShareIcon, ThreeDot } from '../../components/imgs';
-import { useRouter } from 'next/router';
+import styles from './pin.module.scss'
+
+const shareLinksParams = {
+    tg: {
+        name: "Telegram",
+        type: "sircle",
+        url: "google.com",
+        text: "gooloogooloo"
+    },
+    vk: {
+        name: "Vk",
+        type: "sircle",
+        url: 'vk.com',
+        text: "vk"
+    }
+}
+
+
 const Pin = ({ data }) => {
     const router = useRouter()
+    const { user } = data
+    const profileParams = {
+        name: user.username,
+        image: user.profile_image.small,
+        type: 'mini',
+        href: user.portfolio_url
+    }
     const copyUrl = () => {
         navigator.clipboard.writeText(process.env.SITE_URL + router.asPath)
-    }
-    const shareLinksParams = {
-        tg: {
-            name: "Telegram",
-            type: "sircle",
-            url: "google.com",
-            text: "gooloogooloo"
-        },
-        vk: {
-            name: "Vk",
-            type: "sircle",
-            url: 'vk.com',
-            text: "vk"
-        }
+        // navigator.clipboard.writeText(JSON.stringify(user))
     }
     return <div className={styles.page}>
         <div className={styles.pin} style={{height: data.params.height}}>
@@ -41,20 +52,33 @@ const Pin = ({ data }) => {
                         </DropDownMenu>
                         <Btn type="sircle"  onClick={copyUrl}><PathCopyIcon/></Btn>
                     </div>
-                    <div className={styles.profile_container}>
+                    <div className={styles.accountSave_container}>
                         <DropDownMenu btnStyle="default" title="Профиль" >
                             <p>Какая то ересь, даже не ссылка</p> 
                         </DropDownMenu>    
-                        <Btn className={styles.profile_container__btn}>Сохранить</Btn>
+                        <Btn className={styles.accountSave_btn}>Сохранить</Btn>
                     </div>
+                </div>
+                <div className={styles.profile_container}>
+                    <div className={styles.byDownload}>
+                        <span className={styles.title}>Загружено:</span>
+                        <ProfileLink params={{
+                            name: profileParams.name,
+                            href: profileParams.href,
+                            type: "text"
+                        }} />
+                    </div>
+                    <ProfileLink className={styles.profile} params={profileParams} />
                 </div>
             </div>
         </div>    
     </div>
 }
+
 export const getServerSideProps = async (context) => {
     const id = context.query.id
     const data = (await pinGenerateQuery({ id })).data
+    data.related_collections = null
     data.params = generateImgParams(data.height, data.width, 510)
     return {
         props: {
@@ -64,3 +88,6 @@ export const getServerSideProps = async (context) => {
 }
 
 export default Pin
+
+
+

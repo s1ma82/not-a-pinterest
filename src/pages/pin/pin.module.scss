@@ -9,32 +9,51 @@
         max-width: 1020px;
 
         .info{
-            padding: 20px;
+            padding: 20px 30px;
             width: 50%;
+
             &__header{
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                background: #000;
                 .share_container{
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
                     width: 30%;
                 }
-                .profile_container{
-                    gap: 5px;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
+                .accountSave{
 
-                    &__btn{
+                    &_container{
+                        gap: 5px;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+                    &_btn{
                         color: var(--color-white-full);
                         background: var(--color-red);
                         &:hover {
                             box-shadow: var(--box-shadow-hover-effect-dark);
                         }
                     }   
+                }
+            }
+            .profile_container{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                .profile{
+                    padding: 5px 0;
+                }
+                .byDownload{
+                    display: flex;
+                    align-items: flex-end;
+                    gap: 5px;
+                    .title{
+                        margin: 5px 0;
+                        font-size: 21px;
+                    }
                 }
             }
         }

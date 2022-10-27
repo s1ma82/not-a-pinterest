@@ -43,7 +43,7 @@ const Header = () => {
 					<SircleMenu name='MessagesMenu' Icon={MessegesIcon}>
 						<SidePanel.SideMessagesMenu />
 					</SircleMenu>
-					<ProfileLink type='micro' />
+					<ProfileLink  params={{type: "micro"}} />
 					<MainHeaderMenu />
 				</div>
 			</nav>

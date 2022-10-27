@@ -6,22 +6,54 @@
     cursor: pointer;
     border-radius: 16px;
 
+    &__info{
+        font-size: 14px;
+        p{
+            color: var(--color-dark-gray);
+        }
 
+        *{
+            padding: 0;
+            margin: 5px 0;
+        }
+        .name{
+            font-size: 16px;
+            font-weight: 800;
+        }
+        
+    }  
+    
     &:hover {
         box-shadow: var(--box-shadow-hover-effect-dark);
     }
-    &_mini:hover{   
-        box-shadow: none;
-        .profile__info{
+    
+    &_text{
+        padding: 0;
+        border-radius: 0;
+        .name{
+            font-size: 21px;
+
+        }
+        &:hover{
+            box-shadow: none;
+            text-decoration: underline;
+        }
+    }    
+    
+    &_mini{
+        &__info{
             .name{
-                text-decoration: underline;
+                font-size: 13px;
+                font-weight: 400;
             }
         }
-    }
-    &_mini>&__info{
-        .name{
-            font-size: 13px;
-            font-weight: 400;
+        &:hover{   
+            box-shadow: none;
+            .profile__info{
+                .name{
+                    text-decoration: underline;
+                }
+            }
         }
     }
     &_micro{
@@ -59,22 +91,6 @@
                 align-items: center;
             }
         }
-    }
-    &__info{
-        font-size: 14px;
-        p{
-            color: var(--color-dark-gray);
-        }
-
-        *{
-            padding: 0;
-            margin: 5px 0;
-        }
-        .name{
-            font-size: 16px;
-            font-weight: 800;
-        }
-        
     }
     
 }

@@ -2,16 +2,21 @@ import React, {Children} from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from './ProfileLink.module.scss'
-const ProfileLink = ({
-	name = '',
-	href,
-	status = 'Личный',
-	mail = '',
-	image = '/blank-profile-picture.png',
-	type,
-}) => {
+const ProfileLink = ({ params, className }) => {
+	
+	const {
+		name = '', status = 'Личный',
+		mail = '', image = '/blank-profile-picture.png',
+		type, href
+	} = params
 	const Children = () => {
 		switch (type) {
+			case 'text':
+				return (
+					<div className={styles.profile__info}>
+						<h1 className={styles.name}>{name}</h1>
+					</div>
+				)
 			case 'micro':
 				return (
 					<div className={styles.profile__image_container_micro}>
@@ -63,18 +68,21 @@ const ProfileLink = ({
 						</div>
 					</>
 				)
-		}
+			}
 	}
 
 	return (
-		<Link href={href || '/profile'}>
-			<div
-				className={`${styles.profile} ${
-					type ? styles['profile_' + type] : ''
-				}`}>
-				<Children />
-			</div>
-		</Link>
+		// <Link href={href || '/profile'}>
+			<a href={href}>
+				<div className={`
+					${styles.profile} 
+					${type ? styles['profile_' + type] : ''}
+					${className}
+				`}>
+					<Children />
+				</div>
+			</a>
+		// </Link>
 	)
 }
 
