@@ -21,9 +21,11 @@ const Pin = ({data}) => {
 			</Link>
 			<div className={styles.pin__info}>
 				<ProfileLink
-					name={user.name}
-					image={user.profile_image.small}
-					type='mini'
+					params={{
+						name : user.name,
+						image: user.profile_image.small,
+						type : 'mini'
+					}}
 				/>
 			</div>
 		</div>
