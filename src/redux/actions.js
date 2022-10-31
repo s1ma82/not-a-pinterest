@@ -1,0 +1,1 @@
+export const modalAction = obj => ( {type: 'modal', payload: obj} )

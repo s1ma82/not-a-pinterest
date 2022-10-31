@@ -1,11 +1,12 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import {modalAction} from '../../redux/actions'
 import pinGenerateQuery from '../../helpers/apiRequest/pinGenerateQuery';
 import {Btn, DropDownMenu, ImgComp, ProfileLink, ShareLink} from '../../components'
 import { generateImgParams } from '../../helpers';
 import { PathCopyIcon, ShareIcon, ThreeDot } from '../../components/imgs';
 import styles from './pin.module.scss'
-
+import { useDispatch } from 'react-redux';
 const shareLinksParams = {
     tg: {
         name: "Telegram",
@@ -24,6 +25,7 @@ const shareLinksParams = {
 
 const Pin = ({ data }) => {
     const router = useRouter()
+    const dispatch = useDispatch()
     const { user } = data
     const profileParams = {
         name: user.username,
@@ -33,6 +35,7 @@ const Pin = ({ data }) => {
     }
     const copyUrl = () => {
         navigator.clipboard.writeText(process.env.SITE_URL + router.asPath)
+        dispatch(modalAction({text: 'Ссылка скопирована в буфер обмена'}))
         // navigator.clipboard.writeText(JSON.stringify(user))
     }
     return <div className={styles.page}>
@@ -50,7 +53,7 @@ const Pin = ({ data }) => {
                             <ShareLink params = {shareLinksParams.tg}/>
                             <ShareLink params = {shareLinksParams.vk}/>
                         </DropDownMenu>
-                        <Btn type="sircle"  onClick={copyUrl}><PathCopyIcon/></Btn>
+                        <Btn type="sircle" onClick={copyUrl}><PathCopyIcon/></Btn>
                     </div>
                     <div className={styles.accountSave_container}>
                         <DropDownMenu btnStyle="default" title="Профиль" >
