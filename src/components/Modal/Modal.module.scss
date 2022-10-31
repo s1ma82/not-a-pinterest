@@ -1,0 +1,30 @@
+.btn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+.modal{
+    text-align: center;
+    display: flex;
+    max-width: 350px;
+    border-radius: 16px;
+    font-size: 18px;
+    line-height: 25px;
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    bottom: 4%;
+    left: 50%;
+    transform: translate(-50%);
+    background: #000000;
+    padding: 20px;
+    transition: opacity .4s 0s, visibility .5s, bottom .3s 1s;
+    transition-delay: 1s;
+
+    &_active{
+        opacity: .9;
+        bottom: 10%;
+        visibility: visible;
+        transition: bottom .3s, opacity .3s;
+    }
+}  
