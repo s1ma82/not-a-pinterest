@@ -1,39 +1,47 @@
-import React, {useEffect, useState} from 'react'
-import ReactDOM from 'react-dom'
+import React, {useRef, useState} from 'react'
 import {CloseIcon, SearchIcon} from '../imgs'
 import {useOutside} from '../../hooks'
 import styles from './SearchBlock.module.scss'
 
 const SearchBlock = () => {
 	const [input, setInput] = useState('')
+	const [inputMini, setInputMini] = useState(true)
+	const inputElement = useRef(null)
 	const [activityState, setActivityState] = useOutside([
 		`.${styles.search_active}`,
 	])
-	let inputElement = null
 
 	return (
-		<div
-			id='searchBlock'
+		<div id='searchBlock'
 			onClick={e => {
+				if (inputMini) {
+					setInputMini(false)
+					const promise = new Promise((resolve, reject) => {
+						resolve(!inputElement.current.classList.contains(styles.search_mini))
+					})
+					promise
+						.then(() => inputElement.current.focus())
+						.catch(e => console.error(e.message))
+					return 
+				}
 				if (e.target.closest('button')) return
-				if (!activityState) if (inputElement) inputElement.focus()
+				if (!activityState || inputElement.current) inputElement.current.focus()
 				setActivityState(true)
 			}}
-			className={`${styles.search} ${
-				activityState ? styles.search_active : ''
-			}`}>
+			className={`
+				${styles.search} 
+				${inputMini ? styles.search_mini : ''}
+				${activityState ? styles.search_active : ''}
+			`}>
 			<div
-				className={`${styles.search__icon} ${
-					!activityState
-						? input.length === 0
-							? styles.search__icon_active
-							: ''
-						: ''
-				}`}>
+				className={`
+					${styles.search__icon} 
+					${!activityState ? input.length === 0 ? styles.search__icon_active : '' : ''}
+				`}>
 				<SearchIcon />
 			</div>
 			<input
-				ref={i => (inputElement = i)}
+				ref={inputElement}
 				name='searchBlockInput'
 				onChange={e => setInput(e.target.value)}
 				type='text'
@@ -46,11 +54,12 @@ const SearchBlock = () => {
 					setInput('')
 					setActivityState(false)
 				}}
-				className={`${styles['search__btn-delete']} ${
-					input.length !== 0 || activityState
-						? styles['search__btn-delete_active']
-						: ''
-				}`}>
+				className={`
+					${styles['search__btn-delete']}
+					${ input.length !== 0 || activityState
+						? styles['search__btn-delete_active'] : ''
+					}
+				`}>
 				<CloseIcon />
 			</button>
 		</div>

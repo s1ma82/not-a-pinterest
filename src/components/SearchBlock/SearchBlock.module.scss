@@ -9,6 +9,28 @@
     align-items: center;
     padding: 0 15px;
 
+    &_mini{
+        background: transparent;
+        align-self: flex-end;
+        flex-direction: column;
+        justify-content: center;
+        width: 54px;
+        height: 54px;
+        padding: 0;
+        cursor: pointer;
+        
+        &:hover{
+            box-shadow: var(--box-shadow-hover-effect-light);
+        }
+        .search{
+            &__input{
+                display: none;
+            }
+            &__btn-delete{
+                display: none;
+            }
+        }
+    }
     &__input{
         width: 100%;
         height: 48px;

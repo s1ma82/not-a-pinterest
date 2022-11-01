@@ -3,8 +3,8 @@ import React from "react";
 const SearchIcon = () => {
 	return (
 		<svg
-			height="16"
-			width="16"
+			height="20"
+			width="20"
 			viewBox="0 0 24 24"
 			aria-label="Значок поиска"
 			role="ImgComp"
