@@ -4,10 +4,9 @@
         display: flex;
         margin: 0 auto; 
         border-radius: 16px;
-        height: auto;
         min-width: 510px;
         max-width: 1020px;
-
+    
         .info{
             padding: 20px 30px;
             width: 50%;
@@ -16,6 +15,7 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+
                 .share_container{
                     display: flex;
                     justify-content: space-between;
@@ -53,6 +53,22 @@
                     .title{
                         margin: 5px 0;
                         font-size: 21px;
+                    }
+                }
+            }
+        }
+        @media screen and (max-width: 1060px) {
+            align-items: center;
+            flex-direction: column;
+            width:fit-content ;
+            .info{
+                padding: 10px 0;
+                width: auto;
+                &__header{
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    .share_container{
+                        min-width: fit-content;
                     }
                 }
             }
